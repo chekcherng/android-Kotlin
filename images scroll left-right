@@ -1,0 +1,167 @@
+package com.example.photo
+
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
+import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
+//import androidx.compose.material.icons.Icons
+//import androidx.compose.material.icons.filled.AccountBox
+//import androidx.compose.material3.Icon
+import androidx.compose.material3.Surface
+
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import coil.compose.AsyncImage
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            App()
+        }
+    }
+}
+
+//SHAPE ROW START
+@Preview(showSystemUi = true)
+@Composable
+fun App() {
+    Box(
+        modifier = Modifier
+            .background(Color.Black)
+            .fillMaxSize(),
+        contentAlignment = Alignment.TopCenter
+    ) {
+        composeRowImage()
+    }
+}
+
+@Composable
+fun composeRowImage(){
+    Row(
+        modifier = Modifier
+            .fillMaxSize()
+            .horizontalScroll(rememberScrollState()),
+//        verticalAlignment = Alignment.CenterVertically,
+    ){
+        ComposeImage(imageUrl1)
+        ComposeImage(imageUrl2)
+        ComposeImage(imageUrl3)
+        ComposeImage(imageUrl4)
+
+    }
+}
+val imageUrl1 = "https://m.media-amazon.com/images/M/MV5BYWJkY2Q4NmYtOGRlMi00YTg5LWE2ZmQtY2NkYzk3YTRmNWZlXkEyXkFqcGdeQXVyMTY3ODkyNDkz._V1_.jpg"
+val imageUrl2 = "https://cdn.kinocheck.com/i/ki0kjvifhd.jpg"
+val imageUrl3 = "https://static1.moviewebimages.com/wordpress/wp-content/uploads/2023/12/role_play_xlg.jpg"
+val imageUrl4 = "https://static1.colliderimages.com/wordpress/wp-content/uploads/2024/01/the-bricklayer-film-poster.jpg"
+
+@Composable
+fun ComposeImage(image: String) {
+        Surface (
+            modifier = Modifier.size(width = 180.dp, height = 300.dp).padding(10.dp),
+            color = Color(0xFF4527A0),
+            shape = RoundedCornerShape(20.dp),
+    ){
+            AsyncImage(
+                model = image,
+                contentDescription = null,
+                contentScale = ContentScale.Crop,)
+
+        }
+}
+//SHAPE ROW END
+
+//SHAPE START
+//@Preview(showSystemUi = true)
+//@Composable
+//fun App() {
+//    Box(
+//        modifier = Modifier.fillMaxSize(),
+//        contentAlignment = Alignment.Center
+//    ) {
+//        composeCircle()
+//    }
+//}
+//
+//@Composable
+//fun composeCircle(){
+//    Surface (
+//        modifier = Modifier.size(width = 200.dp, height = 200.dp),
+//        color = Color(0xFF4527A0),
+//        shape = CircleShape,
+//        border = BorderStroke(width = 5.dp, color = Color.Red,)
+//    ){
+//        ComposeImage()
+//    }
+//}
+//SHAPE END
+
+//PHOTO START
+//@Preview(showSystemUi = true)
+//@Composable
+//fun App() {
+//    Box(
+//        modifier = Modifier.fillMaxSize(),
+//        contentAlignment = Alignment.Center
+//    ) {
+//        ComposeImage()
+//    }
+//}
+
+
+//val imageUrl = "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSGfpQ3m-QWiXgCBJJbrcUFdNdWAhj7rcUqjeNUC6eKcXZDAtWm" // Replace this URL with a direct link to an image file.
+//@Composable
+//fun ComposeImage() {
+//    AsyncImage(
+//        model = imageUrl,
+//        contentDescription = null,
+//        contentScale = ContentScale.Crop,)
+//}
+
+
+//@Composable
+//fun ComposeIcon() {
+//    Icon(
+//        modifier = Modifier.size(100.dp),
+//        imageVector = Icons.Default.AccountBox,
+//        contentDescription = null,
+//        tint = Color(0xFFE91E63)
+//    )
+//}
+
+//@Composable
+//fun composeText(){
+//    Box(
+//        modifier = Modifier.fillMaxSize(),
+//        contentAlignment = Alignment.Center
+//    ) {
+//        Text(
+//            "សាកលវិទ្យាល័យ\nពាណិជ្ជសាស្រ្ត\nអេស៊ីលីដា",
+//            textAlign = TextAlign.Center,
+//            style = androidx.compose.ui.text.TextStyle(
+//                fontSize = 50.sp,
+//                fontStyle = FontStyle.Italic,
+//                brush = Brush.horizontalGradient(
+//                    listOf(Color.Magenta,Color.Red,Color.Blue)
+//                )
+//            )
+//        )
+//    }
+//}
