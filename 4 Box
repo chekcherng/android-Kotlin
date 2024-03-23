@@ -1,0 +1,23 @@
+@Preview(showSystemUi = true)
+@Composable
+fun App() {
+    Box(
+        contentAlignment = Alignment.Center
+    ) {
+        composeRow()
+    }
+}
+
+@Composable
+fun composeRow(){
+    Row(
+        modifier = Modifier.fillMaxSize().background(Color.Yellow.copy(alpha = 0.2f)),
+        horizontalArrangement = Arrangement.SpaceAround,
+        verticalAlignment = Alignment.Bottom,
+        ){
+        Box(modifier = Modifier.size(50.dp, 40.dp).background(Color.Cyan))
+        Box(modifier = Modifier.size(70.dp, 60.dp).background(Color.Red))
+        Box(modifier = Modifier.size(80.dp, 70.dp).background(Color.Blue))
+        Box(modifier = Modifier.size(40.dp, 50.dp).background(Color.Magenta))
+    }
+}
